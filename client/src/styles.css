@@ -13,15 +13,29 @@
     width: 200px;
 }
 
-#answer-row {
+#screen {
     background-color: coral;
     grid-column: 1/5;
     grid-row: 1/2;
     border-style: solid;
     border-width: 1px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#calcs {
+    background-color: cyan;
+    grid-row: 1/2;
+    text-align: end;
+}
+
+#answer-row {
+    background-color: rgb(21, 255, 0);
+    grid-row: 2/3;
+    text-align: end;
+    /* justify-content: flex-end;
+    align-items: flex-end; */
 }
 
 #erase {
