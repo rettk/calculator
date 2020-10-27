@@ -1,8 +1,8 @@
 TO DO
-- = button
-- +/- button
+- (BUG) math doesn't compute totals for 2 digit numbers., something's wrong, but * and / works. Seems to be using second or consecutive digits ruins the +/- math on equals()
+- +/- button. Only the first digit computes and affects the total, but not consecutive digits.  
 - 0,+,/,* buttons can't be first text input by keyboard, but - and . can
-- show previouscalcs answer if calc incomplete
+- (optional) show previouscalcs answer if calc incomplete
 - make it look nice
 
 ADVANCED TO DO (If Time)
@@ -16,6 +16,7 @@ DONE
 - 0,+,/,* buttons can't be first press, but - and . can
 - .,+,-,*,/ buttons can't be pressed more than once in a row, and only . can go after the others
 - 0 cannot follow an operator +,-,*,/
+- = button, remember to convert the "total" number into a "calcs" string to match state
 
 
 

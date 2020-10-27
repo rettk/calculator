@@ -10,6 +10,18 @@ function App() {
         calcsArraySimple: [3, "+", 4, "+", 8, "-", 5] // should return 10
     })
 
+    let currentTotal = doMath(numbers.calcs)
+    // console.log(currentTotal)
+
+    function setTotal() {
+        currentTotal ? setNumbers(prevNumbers => ({ ...prevNumbers, total: currentTotal })) : console.log("none")
+    }
+    console.log(currentTotal)
+
+    useEffect(() => {
+        if (currentTotal) { setTotal() }
+    }, currentTotal)
+
     // function doMath(array) {
     //     let condensedProblem = array.join("")
     //     let condensedAnswer = eval(condensedProblem)
@@ -45,7 +57,7 @@ function App() {
     function equals() {
         setNumbers(prevNumbers => ({
             ...prevNumbers,
-            calcs: doMath(prevNumbers.calcs)
+            calcs: String(prevNumbers.total)
         }))
     }
 
@@ -74,12 +86,15 @@ function App() {
     // }
 
 
+
     //FUNCTION TESTS console logs
     // doMath(numbers.calcsArrayComplex)  WORKS
     // console.log(eval(numbers.calcsStringComplex))  WORKS
-    // console.log(numbers.calcs)
+    console.log(numbers.calcs)
     // console.log(eval("5+5"))
     console.log(numbers.total)
+
+
 
 
     return (
