@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 
 function App() {
 
@@ -10,17 +10,18 @@ function App() {
         calcsArraySimple: [3, "+", 4, "+", 8, "-", 5] // should return 10
     })
 
-    let currentTotal = doMath(numbers.calcs)
+    // let currentTotal = doMath(numbers.calcs)
     // console.log(currentTotal)
 
-    function setTotal() {
-        currentTotal ? setNumbers(prevNumbers => ({ ...prevNumbers, total: currentTotal })) : console.log("none")
-    }
-    console.log(currentTotal)
+    //SET TOTAL DOESN"T WORK
+    // function setTotal() {
+    //     currentTotal ? setNumbers(prevNumbers => ({ ...prevNumbers, total: currentTotal })) : console.log("none")
+    // }
+    // console.log(currentTotal)
 
-    useEffect(() => {
-        if (currentTotal) { setTotal() }
-    }, currentTotal)
+    // useEffect(() => {
+    //     setTotal()
+    // }, currentTotal)
 
     // function doMath(array) {
     //     let condensedProblem = array.join("")
@@ -57,7 +58,8 @@ function App() {
     function equals() {
         setNumbers(prevNumbers => ({
             ...prevNumbers,
-            calcs: String(prevNumbers.total)
+            calcs: String(doMath(prevNumbers.calcs))
+            // calcs: String(prevNumbers.total)  //  PREVIOUS BUG PROBLEM
         }))
     }
 
