@@ -8,7 +8,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: repeat(6, 1fr);
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
     height: 300px;
     width: 200px;
 }
@@ -27,11 +27,11 @@
 #calcs {
     background-color: cyan;
     grid-row: 1/2;
-    text-align: end;
+    /* text-align: end; */
 }
 
 #answer-row {
-    background-color: rgb(21, 255, 0);
+    background-color: rgb(205, 214, 205);
     grid-row: 2/3;
     text-align: end;
     /* justify-content: flex-end;
@@ -41,16 +41,16 @@
 #erase {
     grid-column: 1/2;
     grid-row: 2/3;
-    border-style: solid;
-    border-width: 1px;
+    /* border-style: solid; */
+    /* border-width: 1px; */
     background-color: cornsilk;
 }
 
 #back {
     grid-column: 2/4;
     grid-row: 2/3;
-    border-style: solid;
-    border-width: 1px;
+    /* border-style: solid;
+    border-width: 1px; */
     background-color: blue;
 }
 
