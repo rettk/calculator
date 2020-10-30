@@ -3,11 +3,9 @@ import React, { useState } from "react"
 function App() {
 
     const [numbers, setNumbers] = useState({
-        total: 0,
+        total: "",
         calcs: "",
-        calcsStringComplex: "3+2-(1*2)+.3",
-        calcsArrayComplex: [3, "+", 2, "-", `(`, 1, `*`, 2, `)`, "+", .3],  // should return 3.3, not 8.3
-        calcsArraySimple: [3, "+", 4, "+", 8, "-", 5] // should return 10
+
     })
 
     // let currentTotal = doMath(numbers.calcs)
@@ -42,7 +40,8 @@ function App() {
         const { value } = e.target.value
         setNumbers(prevNumbers => ({
             ...prevNumbers,
-            calcs: prevNumbers.calcs + e.target.value
+            calcs: prevNumbers.calcs + e.target.value,
+
         }))
         document.getElementById("field").focus()
     }
@@ -70,11 +69,58 @@ function App() {
         }))
     }
 
+    function negativeToggle() {
+        // let lastOperatorIndex =
+        //     numbers.calcs.lastIndexOf("+" || "-" || "*" || "/") won't work with OR statement. Sad.
+        let operatorIndexArray = []
+        operatorIndexArray.push(numbers.calcs.lastIndexOf("+"))
+        operatorIndexArray.push(numbers.calcs.lastIndexOf("-"))
+        operatorIndexArray.push(numbers.calcs.lastIndexOf("/"))
+        operatorIndexArray.push(numbers.calcs.lastIndexOf("*"))
+        let correctIndex = Math.max(...operatorIndexArray) // spread operator is necessary here
+        // console.log(operatorIndexArray)
+        // console.log(correctIndex)
+        // console.log(numbers.calcs[numbers.calcs.length - 1])
+        if (numbers.calcs[numbers.calcs.length - 1] === ")") {
+            let lastParenth = numbers.calcs.lastIndexOf("(")
+            setNumbers(prevNumbers => ({
+                ...prevNumbers,
+                calcs:
+                    [prevNumbers.calcs.slice(0, lastParenth),
+                    prevNumbers.calcs.slice(lastParenth + 2, prevNumbers.calcs.length - 1)]
+                        .join("")
+            }))
+        } else if (numbers.calcs[numbers.calcs.length - 1] === "*" ||
+            numbers.calcs[numbers.calcs.length - 1] === "/" ||
+            numbers.calcs[numbers.calcs.length - 1] === "-" ||
+            numbers.calcs[numbers.calcs.length - 1] === "+" ||
+            numbers.calcs[numbers.calcs.length - 1] === "("
+        ) {
+            console.log("cant toggle")
+        } else {
+            setNumbers(prevNumbers => ({
+                ...prevNumbers,
+                calcs:
+                    [prevNumbers.calcs.slice(0, correctIndex + 1),
+                        "(-", prevNumbers.calcs.slice(correctIndex + 1), ")"]
+                        .join('')
+            }))
+        }
+    }
+
     function backspace() {
         const newCalc = numbers.calcs.slice(0, -1)
         setNumbers(prevNumbers => ({
             ...prevNumbers,
             calcs: newCalc
+        }))
+    }
+
+    function round() {
+        // equals() don't need because it runs the same task
+        setNumbers(prevNumbers => ({
+            ...prevNumbers,
+            calcs: String(Math.round(doMath(prevNumbers.calcs))),
         }))
     }
 
@@ -248,7 +294,15 @@ function App() {
                         style={{ width: "100%", height: "100%" }}>0
                         </button>
                 </div>
-                <div id="switch"></div>
+                <div id="switch">
+                    <button
+                        // value="."
+                        onClick={numbers.calcs.endsWith(".")
+                            ? null :
+                            negativeToggle}
+                        style={{ width: "100%", height: "100%" }}>+/-
+                        </button>
+                </div>
                 <div id="dot">
                     <button
                         value="."
@@ -262,6 +316,36 @@ function App() {
                     <button
                         onClick={() => doMath(numbers.calcs) ? equals() : null}
                         style={{ width: "100%", height: "100%" }}>=
+                        </button>
+                </div>
+                <div>
+                    <button
+                        onClick={() => doMath(numbers.calcs) ? round() : null}
+                        style={{ width: "100%", height: "100%" }}>???
+                        </button>
+                </div>
+                <div>
+                    <button
+                        value="("
+                        onClick={!doMath(numbers.calcs) ? handleButton : null}
+                        style={{ width: "100%", height: "100%" }}>(
+                        </button>
+                </div>
+                <div>
+                    <button
+                        value=")"
+                        onClick={!numbers.calcs || numbers.calcs.endsWith(".")
+                            || numbers.calcs.endsWith("+") || numbers.calcs.endsWith("-")
+                            || numbers.calcs.endsWith("/") || numbers.calcs.endsWith("*")
+                            ? null :
+                            handleButton}
+                        style={{ width: "100%", height: "100%" }}>)
+                        </button>
+                </div>
+                <div>
+                    <button
+                        onClick={() => doMath(numbers.calcs) ? round() : null}
+                        style={{ width: "100%", height: "100%" }}>round
                         </button>
                 </div>
             </div>
