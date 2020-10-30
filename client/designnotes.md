@@ -1,5 +1,5 @@
 TO DO ---------------------------------
-- 0,+,/,* buttons can't be first text input by keyboard, but - and . can
+- keyboard rules to match button rules. i.e.: 0,+,/,* buttons can't be first text input by keyboard, but - and . can
 - make it look nice
 - (optional) final button or function?  ??? button
 - (optional) how to catch more complex errors like too many ),) or calcs that will never compute?
@@ -8,11 +8,11 @@ TO DO ---------------------------------
 DEV QUESTIONS -------------------------
 - how do you put a picture of a back arrow in the backspace key?
 - look over my +/- function, seems really long
+- do you leave in commented out console.logs for testing?
 
 ADVANCED TO DO (If Time) --------------
 - make the operators selection actually replace the previous one instead of not working, for example pressing + and then - simply changes the + to a - instead of preventing input
 - "complex calcs off" toggle makes it so that totals are calculated at each operator press
-- add parentheses buttons
 
 DONE ----------------------------------
 - after button press, return focus to input text field
@@ -21,6 +21,7 @@ DONE ----------------------------------
 - 0 cannot follow an operator +,-,*,/
 - = button, remember to convert the "total" number into a "calcs" string to match state
 - (BUG-FIXED) math doesn't compute totals for 2 digit numbers., Only the first digit computes and affects the total, but not consecutive digits.  
+- add parentheses buttons
 - (optional) add rounding button to round answer to whole number
 - +/- button. - how can you multiply, add, or subtract by a negative number? May need parentheses buttons or +/- to work (implemented into +/- button)
 

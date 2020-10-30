@@ -138,9 +138,9 @@ function App() {
     //FUNCTION TESTS console logs
     // doMath(numbers.calcsArrayComplex)  WORKS
     // console.log(eval(numbers.calcsStringComplex))  WORKS
-    console.log(numbers.calcs)
+    // console.log(numbers.calcs)
     // console.log(eval("5+5"))
-    console.log(numbers.total)
+    // console.log(numbers.total)
 
 
 
