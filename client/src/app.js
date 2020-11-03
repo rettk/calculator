@@ -31,6 +31,7 @@ function App() {
     function handleChange(e) {
         const { name, value } = e.target
         setNumbers(prevNumbers => ({
+
             ...prevNumbers,
             [name]: value,
         }))
@@ -166,18 +167,21 @@ function App() {
 
                 <div id="erase">
                     <button
+                        className="button-function"
                         onClick={erase}
                         style={{ width: "100%", height: "100%" }}>C
                         </button>
                 </div>
                 <div id="back">
                     <button
+                        className="button-function"
                         onClick={backspace}
                         style={{ width: "100%", height: "100%" }}>backspace
                         </button>
                 </div>
                 <div id="divide">
                     <button
+                        className="button-function"
                         value="/"
                         onClick={!numbers.calcs || numbers.calcs.endsWith(".")
                             || numbers.calcs.endsWith("+") || numbers.calcs.endsWith("-")
@@ -189,6 +193,7 @@ function App() {
                 </div>
                 <div id="7">
                     <button
+                        className="button-number"
                         value="7"
                         onClick={handleButton}
                         style={{ width: "100%", height: "100%" }}>7
@@ -196,6 +201,7 @@ function App() {
                 </div>
                 <div id="8">
                     <button
+                        className="button-number"
                         value="8"
                         onClick={handleButton}
                         style={{ width: "100%", height: "100%" }}>8
@@ -203,6 +209,7 @@ function App() {
                 </div>
                 <div id="9">
                     <button
+                        className="button-number"
                         value="9"
                         onClick={handleButton}
                         style={{ width: "100%", height: "100%" }}>9
@@ -210,6 +217,7 @@ function App() {
                 </div>
                 <div id="multiply">
                     <button
+                        className="button-function"
                         value="*"
                         onClick={!numbers.calcs || numbers.calcs.endsWith(".")
                             || numbers.calcs.endsWith("+") || numbers.calcs.endsWith("-")
@@ -221,6 +229,7 @@ function App() {
                 </div>
                 <div id="4">
                     <button
+                        className="button-number"
                         value="4"
                         onClick={handleButton}
                         style={{ width: "100%", height: "100%" }}>4
@@ -228,6 +237,7 @@ function App() {
                 </div>
                 <div id="5">
                     <button
+                        className="button-number"
                         value="5"
                         onClick={handleButton}
                         style={{ width: "100%", height: "100%" }}>5
@@ -235,6 +245,7 @@ function App() {
                 </div>
                 <div id="6">
                     <button
+                        className="button-number"
                         value="6"
                         onClick={handleButton}
                         style={{ width: "100%", height: "100%" }}>6
@@ -242,6 +253,7 @@ function App() {
                 </div>
                 <div id="subtract">
                     <button
+                        className="button-function"
                         value="-"
                         onClick={numbers.calcs.endsWith(".")
                             || numbers.calcs.endsWith("+") || numbers.calcs.endsWith("-")
@@ -253,6 +265,7 @@ function App() {
                 </div>
                 <div id="1">
                     <button
+                        className="button-number"
                         value="1"
                         onClick={handleButton}
                         style={{ width: "100%", height: "100%" }}>1
@@ -260,6 +273,7 @@ function App() {
                 </div>
                 <div id="2">
                     <button
+                        className="button-number"
                         value="2"
                         onClick={handleButton}
                         style={{ width: "100%", height: "100%" }}>2
@@ -267,6 +281,7 @@ function App() {
                 </div>
                 <div id="3">
                     <button
+                        className="button-number"
                         value="3"
                         onClick={handleButton}
                         style={{ width: "100%", height: "100%" }}>3
@@ -274,6 +289,7 @@ function App() {
                 </div>
                 <div id="add">
                     <button
+                        className="button-function"
                         value="+"
                         onClick={!numbers.calcs || numbers.calcs.endsWith(".")
                             || numbers.calcs.endsWith("+") || numbers.calcs.endsWith("-")
@@ -285,6 +301,7 @@ function App() {
                 </div>
                 <div id="0">
                     <button
+                        className="button-number"
                         value="0"
                         onClick={!numbers.calcs
                             || numbers.calcs.endsWith("+") || numbers.calcs.endsWith("-")
@@ -296,7 +313,7 @@ function App() {
                 </div>
                 <div id="switch">
                     <button
-                        // value="."
+                        className="button-number"
                         onClick={numbers.calcs.endsWith(".")
                             ? null :
                             negativeToggle}
@@ -305,6 +322,7 @@ function App() {
                 </div>
                 <div id="dot">
                     <button
+                        className="button-number"
                         value="."
                         onClick={numbers.calcs.endsWith(".")
                             ? null :
@@ -314,6 +332,7 @@ function App() {
                 </div>
                 <div id="equals">
                     <button
+                        className="button-function"
                         onClick={() => doMath(numbers.calcs) ? equals() : null}
                         style={{ width: "100%", height: "100%" }}>=
                         </button>

@@ -60,9 +60,20 @@
     background-color: cornsilk;
 }
 
+.button-number {
+    background: rgb(94, 88, 164);
+    background: linear-gradient(90deg, rgba(94, 88, 164, 1) 0%, rgba(130, 130, 204, 1) 24%, rgba(144, 162, 205, 1) 64%, rgba(154, 183, 207, 1) 100%);
+    font-size: larger;
+    font-weight: 400;
+    color:cornsilk;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.button-function {
+    font-size: large;
+}
+
 /* 
-
-
 <div id="divide"></div>
 <div id="7"></div>
 <div id="8"></div>
@@ -79,9 +90,10 @@
 <div id="0"></div>
 <div id="switch"></div>
 <div id="dot"></div>
-<div id="equals"></div>   */
+<div id="equals"></div>   
+*/
 
-.button {
+/* .button {
     border: 1px outset blue;
     background-color: lightBlue;
     height: 50px;
@@ -92,4 +104,4 @@
 .button:hover {
     background-color: blue;
     color: white;
-}
+} */

@@ -1,11 +1,12 @@
 TO DO ---------------------------------
 - keyboard rules to match button rules. i.e.: 0,+,/,* buttons can't be first text input by keyboard, but - and . can
-- make it look nice
+- make it look nice (move calc to center of page, add title, stylize it better)
 - (optional) final button or function?  ??? button
 - (optional) how to catch more complex errors like too many ),) or calcs that will never compute?
 - (optional) show previouscalcs answer if calc incomplete
 
 DEV QUESTIONS -------------------------
+- how to make it look real nice? Big soft numbers.
 - how do you put a picture of a back arrow in the backspace key?
 - look over my +/- function, seems really long
 - do you leave in commented out console.logs for testing?
